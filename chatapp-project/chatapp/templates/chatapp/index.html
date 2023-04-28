@@ -1,0 +1,28 @@
+{% extends 'chatapp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    {% block body %}
+    <div style="font-weight: bold; padding-left: 40px; margin-top: 30px; margin-bottom: 20px;">
+        <h1>List Of Rooms</h1>
+    </div>
+    <div style="display:flex; flex-direction: column;">
+        {% for rooms in chatrooms %}
+        <ul style="display: inline; margin-top: 10px; margin-bottom: 10px; padding-left: 50px;" >
+            <li >
+                <a href="{% url 'chatroom' rooms.slug %}">
+                    {{rooms.name}}
+                </a>
+            </li>
+        </ul> 
+        {% endfor %}
+    </div>
+    {% endblock %}
+</body>
+</html>
